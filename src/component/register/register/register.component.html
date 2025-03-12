@@ -24,7 +24,7 @@
         <mat-form-field class="input">
             <mat-label>Password</mat-label>
             <input matInput [type]="show ? 'password' : 'text'" formControlName="password" />
-            <mat-icon matSuffix (click)="showpasword()">   {{ show ? 'visibility_off' : 'visibility' }}</mat-icon  >
+            <mat-icon matSuffix (click)="showPassword()">   {{ show ? 'visibility_off' : 'visibility' }}</mat-icon  >
             @if(registerForm.get('user.password')?.invalid && registerForm.get('user.password')?.touched)
             {
                 <mat-error>
