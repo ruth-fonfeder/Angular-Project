@@ -19,13 +19,14 @@ import { UserServiceService } from '../../../services/user-service.service';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatIconModule
-    ,],
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
   registerForm: FormGroup;
   show = true;
+
   constructor(private fb: FormBuilder, private userService: UserServiceService) {
     this.registerForm = this.fb.group({
       user: this.fb.group({
@@ -33,24 +34,31 @@ export class RegisterComponent {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         role: ['', Validators.required],
-
       }),
     });
   }
 
-  showpasword() {
+  showPassword() {
     this.show = !this.show;
   }
+
   onSubmit(): void {
-    localStorage.setItem('role',this.registerForm.value.user.role)
+    // בדיקה אם אנחנו בסביבת דפדפן
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('role', this.registerForm.value.user.role);
+    }
+
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
-      this.userService.signUp(this.registerForm.value.user.name,this.registerForm.value.user.email,this.registerForm.value.user.password,this.registerForm.value.user.role).subscribe({
-        next: (data:any) => alert("התחברת בהצלחה"), error: (err:any) => console.log("no")
+      this.userService.signUp(
+        this.registerForm.value.user.name,
+        this.registerForm.value.user.email,
+        this.registerForm.value.user.password,
+        this.registerForm.value.user.role
+      ).subscribe({
+        next: (data: any) => alert("התחברת בהצלחה"),
+        error: (err: any) => console.log("no")
       });
-    };
+    }
   }
 }
-
-
-
