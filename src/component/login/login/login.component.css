@@ -1,0 +1,43 @@
+/* לדוגמה ב-register.component.css */
+::ng-deep .mat-form-field {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 8px; /* עגלגל */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+::ng-deep .mat-form-field.mat-focused {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 8px #FF8C00; /* הדגשה עם אור כתום */
+}
+
+::ng-deep .mat-form-field-label {
+    color: #FF8C00 !important; /* צבע כתום זוהר */
+    font-weight: bold;
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: #FF4500 !important; /* אדום כשיש שגיאה */
+}
+
+::ng-deep input.mat-input-element {
+    border-radius: 4px;
+    padding: 10px 15px;
+    border: 1px solid #FF8C00;
+    transition: all 0.3s ease;
+}
+
+::ng-deep input.mat-input-element:focus {
+    border-color: #FF4500;
+    box-shadow: 0 0 5px rgba(255, 69, 0, 0.4);
+}
+
+::ng-deep .mat-icon {
+    color: #FF8C00;
+    cursor: pointer;
+}
+
+::ng-deep .mat-error {
+    color: #FF4500;
+    font-size: 12px;
+    margin-top: 5px;
+}

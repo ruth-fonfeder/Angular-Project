@@ -1,0 +1,25 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h1>🤍 כניסה</h1>
+    <div formGroupName="user">
+        <!-- שדה דוא"ל -->
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-error *ngIf="registerForm.get('user.email')?.hasError('required')">
+                Email is required
+            </mat-error>
+        </mat-form-field>
+
+        <!-- שדה סיסמה -->
+        <mat-form-field class="input" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="show ? 'password' : 'text'" formControlName="password" />
+            <mat-icon matSuffix (click)="showpasword()">{{ show ? 'visibility_off' : 'visibility' }}</mat-icon>
+            <mat-error *ngIf="registerForm.get('user.password')?.invalid && registerForm.get('user.password')?.touched">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button class="bt" color="primary" type="submit">Submit</button>
+</form>

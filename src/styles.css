@@ -1,0 +1,71 @@
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #ff3b5c, #ff5e62, #ff7d84);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* עיצוב המיכל של הכפתורים */
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    animation: pulse 2s infinite;
+}
+
+/* עיצוב הכפתורים */
+.mat-raised-button {
+    background-color: #FF8C00 !important; /* צבע כתום זוהר */
+    color: white !important;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 28px;
+    border-radius: 50px !important; /* צורת כפתור עגלגלה */
+    transition: all 0.4s ease-in-out;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* צללית מודגשת */
+    transform-origin: center center;
+    border: none !important;
+}
+
+/* אפקט מעבר על הכפתורים */
+.mat-raised-button:hover {
+    background-color: #FF4500 !important; /* כתום חזק יותר */
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* אפקט לחיצה */
+.mat-raised-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* כפתור בפוקוס */
+.mat-raised-button:focus {
+    outline: 2px solid #ff7f50;
+}
+
+/* אנימציה למיכל הכפתורים */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
